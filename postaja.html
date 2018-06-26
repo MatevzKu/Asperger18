@@ -101,7 +101,7 @@
                     var tmp2 = dataz.temp;
                     var tmp3 = dataz.lum;
                     tmp1 = 0.0494 * tmp1 + 27.793;
-                    tmp2 = 0.5 * tmp2 + 11.133;
+                    //tmp2 = 0.5 * tmp2 + 11.133; //za temp uporabimo direktno vrednost
                     tmp3 = 95.842 * tmp3 - 51.392;
                     combo.addRow([new Date(), tmp1, tmp2, tmp3]);
                     data1.setValue(0, 1, tmp1);
