@@ -94,15 +94,21 @@
             var podatki = null;
 
             function remoteVal() {
-                $.get("http://192.168.2.153:8080/", function (dataz) {
+                $.get("http://192.168.2.154:8080/", function (dataz) {
                     podatki = dataz;
                     dataz = JSON.parse(dataz);
                     var tmp1 = dataz.hum;
                     var tmp2 = dataz.temp;
                     var tmp3 = dataz.lum;
+                    var ref_lux1 = 6;
+                    var ref_lux2 = 58;
+                    var lux1 = 700;
+                    var lux2 = 2700;
+                    var k_lux = (ref_lux2 - ref_lux1 )/ (lux2-lux1);
+                    var n_lux = ref_lux1 - k_temp * lux1;
                     tmp1 = 0.0494 * tmp1 + 27.793;
                     //tmp2 = 0.5 * tmp2 + 11.133; //za temp uporabimo direktno vrednost
-                    tmp3 = 95.842 * tmp3 - 51.392;
+                    tmp3 = k_lux * tmp3 + n_lux;
                     combo.addRow([new Date(), tmp1, tmp2, tmp3]);
                     data1.setValue(0, 1, tmp1);
                     data2.setValue(0, 1, tmp2);
