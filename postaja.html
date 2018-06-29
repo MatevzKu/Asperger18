@@ -105,7 +105,7 @@
                     var lux1 = 700;
                     var lux2 = 2700;
                     var k_lux = (ref_lux2 - ref_lux1 )/ (lux2-lux1);
-                    var n_lux = ref_lux1 - k_temp * lux1;
+                    var n_lux = ref_lux1 - k_lux * lux1;
                     tmp1 = 0.0494 * tmp1 + 27.793;
                     //tmp2 = 0.5 * tmp2 + 11.133; //za temp uporabimo direktno vrednost
                     tmp3 = k_lux * tmp3 + n_lux;
